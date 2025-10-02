@@ -118,6 +118,12 @@ function App() {
 
       {/* Gallery Section with Flip Cards */}
   <section className="max-w-7xl mx-auto px-4 py-16 mb-36 overflow-visible">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-script text-pink-600 mb-3">Galeri Kenangan</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
+            Beberapa potongan momen yang selalu bikin aku bersyukur punya kamu. Klik setiap kartu untuk membaca pesan yang tersembunyi di baliknya.
+          </p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {/* Card 1 */}
           <div className="flip-card animate-slide-up" onClick={() => toggleFlip(0)}>
@@ -193,6 +199,12 @@ function App() {
 
       {/* Message Section */}
   <section className="max-w-4xl mx-auto px-4 py-16 mt-0">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-script text-pink-600 mb-3">Untuk Kamu</h2>
+          <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
+            Ini semua adalah kata-kata yang mungkin nggak sempat selalu aku ucapin langsung. Bacalah pelan-pelan, setiap kalimatnya untuk kamu.
+          </p>
+        </div>
         <div className="message-card glass-effect p-8 md:p-12 rounded-3xl shadow-2xl backdrop-blur-xl bg-white/40 border border-pink-200 animate-fade-in">
           <div className="max-h-[600px] overflow-y-auto pr-4 custom-scrollbar">
             <div className="space-y-6 text-gray-700 leading-relaxed text-base md:text-lg">
