@@ -98,7 +98,7 @@ function App() {
       </section>
 
       {/* Gallery Section with Flip Cards */}
-      <section className="max-w-7xl mx-auto px-4 py-16">
+  <section className="max-w-7xl mx-auto px-4 py-16 relative z-20 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {/* Card 1 */}
           <div className="flip-card animate-slide-up" onClick={() => toggleFlip(0)}>
@@ -176,7 +176,7 @@ function App() {
       </section>
 
       {/* Message Section */}
-      <section className="max-w-4xl mx-auto px-4 py-16">
+  <section className="max-w-4xl mx-auto px-4 py-16 relative z-10 mt-8">
         <div className="message-card glass-effect p-8 md:p-12 rounded-3xl shadow-2xl backdrop-blur-xl bg-white/40 border border-pink-200 animate-fade-in">
           <div className="max-h-[600px] overflow-y-auto pr-4 custom-scrollbar">
             <div className="space-y-6 text-gray-700 leading-relaxed text-base md:text-lg">

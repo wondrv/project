@@ -163,6 +163,8 @@
   perspective: 1000px;
   cursor: pointer;
   height: 320px;
+  position: relative;
+  z-index: 30; /* pastikan di atas konten lain saat dibalik */
 }
 
 @media (min-width: 768px) {
