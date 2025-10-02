@@ -164,7 +164,7 @@
   cursor: pointer;
   height: 320px;
   position: relative;
-  z-index: 1; /* rendah secara default */
+  z-index: 1; /* default */
 }
 
 .flip-card-inner.flipped {
@@ -219,6 +219,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  top: 0;
+  left: 0;
 }
 
 .flip-hint {

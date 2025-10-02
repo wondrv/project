@@ -68,6 +68,21 @@ function App() {
     window.open('https://wa.me/628xxxxxx', '_blank');
   };
 
+  // Cari file audio lokal pertama jika ada
+  const localAudio = (() => {
+    try {
+  const modules = import.meta.glob('./assets/audio/*.mp3', { eager: true }) as Record<string, { default: string } | string>;
+      const first = Object.values(modules)[0];
+      if (first) {
+        // Vite eager import hasilkan object { default: url } atau langsung url
+        return typeof first === 'string' ? first : first.default;
+      }
+    } catch (e) {
+      console.warn('Audio glob error', e);
+    }
+    return undefined;
+  })();
+
   return (
     <div className="min-h-screen relative overflow-x-hidden">
       {/* Gradient Background */}
@@ -119,12 +134,10 @@ function App() {
                   <span>Klik untuk pesan</span>
                 </div>
               </div>
-              <div className="flip-card-back glass-effect p-6 rounded-2xl border border-pink-200 flex flex-col items-center justify-center text-center">
-                <div className="flip-card-back-content overflow-y-auto max-h-full no-scrollbar px-1">
-                  <p className="text-gray-700 text-sm md:text-base leading-relaxed italic">
-                    Kamu adalah jawaban dari semua doa yang nggak pernah aku ucapkan dengan kata-kata, tapi selalu aku rasakan di dalam hati. Setiap detik bersamamu adalah hadiah yang nggak ternilai harganya, dan aku bersyukur banget bisa jadi bagian dari hidupmu. Aku ingin kamu tau, bahwa kehadiranmu dalam hidupku bukan sekadar kebetulan, tapi adalah takdir terindah yang pernah aku terima.
-                  </p>
-                </div>
+              <div className="flip-card-back glass-effect p-6 rounded-2xl border border-pink-200 flex items-center justify-center text-center">
+                <p className="text-gray-700 text-sm md:text-base leading-relaxed italic max-h-full overflow-y-auto no-scrollbar">
+                  Kamu adalah jawaban dari semua doa yang nggak pernah aku ucapkan dengan kata-kata, tapi selalu aku rasakan di dalam hati. Setiap detik bersamamu adalah hadiah yang nggak ternilai harganya, dan aku bersyukur banget bisa jadi bagian dari hidupmu. Aku ingin kamu tau, bahwa kehadiranmu dalam hidupku bukan sekadar kebetulan, tapi adalah takdir terindah yang pernah aku terima.
+                </p>
               </div>
             </div>
           </div>
@@ -144,12 +157,10 @@ function App() {
                   <span>Klik untuk pesan</span>
                 </div>
               </div>
-              <div className="flip-card-back glass-effect p-6 rounded-2xl border border-pink-200 flex flex-col items-center justify-center text-center">
-                <div className="flip-card-back-content overflow-y-auto max-h-full no-scrollbar px-1">
-                  <p className="text-gray-700 text-sm md:text-base leading-relaxed italic">
-                    Setiap kali aku liat senyummu, rasanya dunia berhenti sejenak dan yang ada cuma kamu di hadapanku. Kamu punya cara tersendiri buat bikin hari-hari biasa jadi luar biasa, bikin momen sederhana jadi kenangan yang nggak terlupakan. Aku nggak butuh tempat mewah atau hal-hal mahal buat bahagia, karena cukup dengan ada kamu di sisiku, itu udah lebih dari cukup.
-                  </p>
-                </div>
+              <div className="flip-card-back glass-effect p-6 rounded-2xl border border-pink-200 flex items-center justify-center text-center">
+                <p className="text-gray-700 text-sm md:text-base leading-relaxed italic max-h-full overflow-y-auto no-scrollbar">
+                  Setiap kali aku liat senyummu, rasanya dunia berhenti sejenak dan yang ada cuma kamu di hadapanku. Kamu punya cara tersendiri buat bikin hari-hari biasa jadi luar biasa, bikin momen sederhana jadi kenangan yang nggak terlupakan. Aku nggak butuh tempat mewah atau hal-hal mahal buat bahagia, karena cukup dengan ada kamu di sisiku, itu udah lebih dari cukup.
+                </p>
               </div>
             </div>
           </div>
@@ -169,12 +180,10 @@ function App() {
                   <span>Klik untuk pesan</span>
                 </div>
               </div>
-              <div className="flip-card-back glass-effect p-6 rounded-2xl border border-pink-200 flex flex-col items-center justify-center text-center">
-                <div className="flip-card-back-content overflow-y-auto max-h-full no-scrollbar px-1">
-                  <p className="text-gray-700 text-sm md:text-base leading-relaxed italic">
-                    Aku tahu kita nggak sempurna, dan hubungan kita pun jauh dari kata sempurna, tapi justru itulah yang bikin semuanya terasa nyata dan berharga. Kita belajar dari setiap kesalahan, kita tumbuh dari setiap pertengkaran, dan kita jadi lebih kuat dari setiap ujian yang kita hadapi bersama. Aku nggak pernah berharap hubungan yang sempurna, karena yang aku cari adalah seseorang yang mau berjuang bersamaku, dan itu adalah kamu.
-                  </p>
-                </div>
+              <div className="flip-card-back glass-effect p-6 rounded-2xl border border-pink-200 flex items-center justify-center text-center">
+                <p className="text-gray-700 text-sm md:text-base leading-relaxed italic max-h-full overflow-y-auto no-scrollbar">
+                  Aku tahu kita nggak sempurna, dan hubungan kita pun jauh dari kata sempurna, tapi justru itulah yang bikin semuanya terasa nyata dan berharga. Kita belajar dari setiap kesalahan, kita tumbuh dari setiap pertengkaran, dan kita jadi lebih kuat dari setiap ujian yang kita hadapi bersama. Aku nggak pernah berharap hubungan yang sempurna, karena yang aku cari adalah seseorang yang mau berjuang bersamaku, dan itu adalah kamu.
+                </p>
               </div>
             </div>
           </div>
@@ -234,7 +243,8 @@ function App() {
           </span>
         </button>
         <audio ref={audioRef} loop>
-          <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+          <source src={localAudio || 'assets/audio/lagu.mp3'} type="audio/mpeg" />
+          Browser kamu tidak mendukung tag audio.
         </audio>
       </div>
 
