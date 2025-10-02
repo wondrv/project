@@ -169,6 +169,18 @@
 
 .flip-card-inner.flipped {
   z-index: 20; /* saat flipped berada di atas konten di bawah */
+  box-shadow: 0 20px 35px -10px rgba(0,0,0,0.25);
+  transform: rotateY(180deg) scale(1.02);
+}
+
+/* Smooth scale for front/back */
+.flip-card-inner {
+  transition: transform 0.8s, box-shadow 0.4s;
+}
+
+/* Optional: saat hover belum flipped beri sedikit elevasi */
+.flip-card:not(.flipped):hover .flip-card-front {
+  box-shadow: 0 12px 28px -8px rgba(0,0,0,0.18);
 }
 
 @media (min-width: 768px) {
