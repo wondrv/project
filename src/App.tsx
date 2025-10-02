@@ -65,7 +65,7 @@ function App() {
   };
 
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/628xxxxxx', '_blank');
+    window.open('https://wa.me/6283837949882', '_blank');
   };
 
   // Cari file audio lokal pertama jika ada
