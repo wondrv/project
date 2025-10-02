@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Heart, Music, MessageCircle, Sparkles, Gift } from 'lucide-react';
+// Import gambar lokal (pastikan file ada di src/assets/images)
+import via1 from './assets/images/via1.jpg';
+import via2 from './assets/images/via2.jpg';
+import via3 from './assets/images/via3.jpg';
 
 function App() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -98,16 +102,17 @@ function App() {
       </section>
 
       {/* Gallery Section with Flip Cards */}
-  <section className="max-w-7xl mx-auto px-4 py-16 relative z-20 mb-8">
+  <section className="max-w-7xl mx-auto px-4 py-16 mb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {/* Card 1 */}
           <div className="flip-card animate-slide-up" onClick={() => toggleFlip(0)}>
             <div className={`flip-card-inner ${flippedCards[0] ? 'flipped' : ''}`}>
               <div className="flip-card-front">
                 <img
-                  src="images/via1.jpg"
+                  src={via1}
                   alt="Birthday balloons"
                   className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-lg"
+                  loading="lazy"
                 />
                 <div className="flip-hint">
                   <Heart className="w-5 h-5 text-white fill-white" />
@@ -129,9 +134,10 @@ function App() {
             <div className={`flip-card-inner ${flippedCards[1] ? 'flipped' : ''}`}>
               <div className="flip-card-front">
                 <img
-                  src="images/via2.jpg"
+                  src={via2}
                   alt="Birthday cake"
                   className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-lg"
+                  loading="lazy"
                 />
                 <div className="flip-hint">
                   <Heart className="w-5 h-5 text-white fill-white" />
@@ -153,9 +159,10 @@ function App() {
             <div className={`flip-card-inner ${flippedCards[2] ? 'flipped' : ''}`}>
               <div className="flip-card-front">
                 <img
-                  src="images/via3.jpg"
+                  src={via3}
                   alt="Roses"
                   className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-lg"
+                  loading="lazy"
                 />
                 <div className="flip-hint">
                   <Heart className="w-5 h-5 text-white fill-white" />
@@ -176,7 +183,7 @@ function App() {
       </section>
 
       {/* Message Section */}
-  <section className="max-w-4xl mx-auto px-4 py-16 relative z-10 mt-8">
+  <section className="max-w-4xl mx-auto px-4 py-16 mt-4">
         <div className="message-card glass-effect p-8 md:p-12 rounded-3xl shadow-2xl backdrop-blur-xl bg-white/40 border border-pink-200 animate-fade-in">
           <div className="max-h-[600px] overflow-y-auto pr-4 custom-scrollbar">
             <div className="space-y-6 text-gray-700 leading-relaxed text-base md:text-lg">

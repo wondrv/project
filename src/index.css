@@ -164,7 +164,11 @@
   cursor: pointer;
   height: 320px;
   position: relative;
-  z-index: 30; /* pastikan di atas konten lain saat dibalik */
+  z-index: 1; /* rendah secara default */
+}
+
+.flip-card-inner.flipped {
+  z-index: 20; /* saat flipped berada di atas konten di bawah */
 }
 
 @media (min-width: 768px) {
