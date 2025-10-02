@@ -8,7 +8,11 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit -p tsconfig.app.json"
+    "typecheck": "tsc --noEmit -p tsconfig.app.json",
+    "diagnose": "npm run typecheck && npm run lint && vite build --debug"
+  },
+  "engines": {
+    "node": ">=18.17.0"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",
