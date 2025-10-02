@@ -65,7 +65,10 @@ function App() {
   };
 
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/6283837949882', '_blank');
+    const phone = '6283837949882'; // ganti nomor sesuai kebutuhan
+    const message = `Wow terima kasih sayang 🥰\n\nAku bener-bener terharu sama semua yang kamu siapin ini. Setiap detailnya kerasa penuh perhatian dan cinta – dari tulisan yang panjang, suasana warna lembut, sampai musik yang nemenin. Rasanya hangat banget dan aku nggak bisa berhenti senyum. Kamu selalu punya cara unik bikin aku ngerasa dihargai, dipilih, dan dijaga.\n\nAku bersyukur banget bisa jalanin semua hari sama kamu. Makasih karena kamu tetap sabar di saat aku lagi nggak sempurna, makasih sudah percaya sama kita bahkan waktu keadaan nggak gampang. Kamu itu rumah paling nyaman buat pulang.\n\nPeluk erat dari sini ya 🤍 Aku sayang kamu lebih dari apa yang bisa aku tulis atau jelasin. Kita terus bareng ya, hari ini, besok, dan seterusnya.\n\n(aku balas ini sambil senyum lebar) 🤍`;    
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
   };
 
   // Cari file audio lokal pertama jika ada
